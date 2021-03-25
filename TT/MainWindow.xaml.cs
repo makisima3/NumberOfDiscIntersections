@@ -123,7 +123,7 @@ namespace TT
 
         private void DrawCircle(int r, int x)
         {
-            r *= centimeter  *2;
+            r *= centimeter * 2;
             if (r > 0)
             {
                 x = x * centimeter + drawFieldWidth / 2;
@@ -204,7 +204,7 @@ namespace TT
 
             foreach (var childe in DrawField.Children)
             {
-                if(childe is Ellipse)
+                if (childe is Ellipse)
                 {
                     remove.Add(childe as Ellipse);
                 }
@@ -218,7 +218,7 @@ namespace TT
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+
             try
             {
                 int count = Convert.ToInt32(input.Text);
@@ -228,7 +228,8 @@ namespace TT
 
                 a = FillArray(count);
 
-                DrawCircleByArray(a);
+                if (count < 1000)
+                    DrawCircleByArray(a);
 
                 Count.Content = $"The number of pairs of intersecting discs: {solution(a)}";
             }
